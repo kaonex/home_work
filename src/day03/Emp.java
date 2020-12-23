@@ -4,6 +4,7 @@ import day02.Person;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * 定义私有属性:
@@ -49,7 +50,7 @@ public class Emp {
     public boolean equals(Object o) {
         if(o instanceof Emp){
             Emp emp=(Emp) o;
-            return this.name == emp.name;
+            return Objects.equals(this.name, emp.name);
         }
         return this == o;
     }

@@ -1,4 +1,10 @@
 package day03;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  * 要求用户首先输入员工数量，然后输入相应员工信息，格式为：
  * name,age,gender,salary,hiredate
@@ -13,7 +19,43 @@ package day03;
  */
 public class Test07 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("输入员工人数:");
+        int num=sc.nextInt();
+
+        ArrayList<String[]> list=new ArrayList<>();
+        for (int i = 0; i < num; i++) {
+            System.out.print("输入员工信息:");
+            String str=sc.next();
+            list.add(str.split(","));
+        }
+
+        ArrayList<Emp> emps=new ArrayList<>();
+
+        for (String[] strings : list) {
+            Emp emp=new Emp(strings[0],Integer.parseInt(strings[1]),
+                    strings[2],Integer.parseInt(strings[3]),sdf.parse(strings[4]));
+            if(emps.size()==0)
+                emps.add(emp);
+            else{
+                boolean flag=true;
+                for (Emp emp1 : emps) {
+                    if(emp1.equals(emp)){
+                        flag=false;
+                        break;
+                    }
+                }
+                if(flag)
+                    emps.add(emp);
+            }
+        }
+        for (Emp emp : emps) {
+            System.out.println(emp);
+        }
+
+
 
     }
 
