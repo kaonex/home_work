@@ -16,10 +16,55 @@ public class Test01 {
 	public static void main(String[] args) {
 		String str = "HelloWorld";
 		test1(str);
-		//以下自行调用test2,test3...等方法。
-		System.out.println("dd");
-		System.out.println(04);
+		test2(str);
+		test3(str);
+		test4(str);
+		String str2="  Hello   ";
+		test5(str2);
+		test6(str);
+		test7(str);
+		test8(str);
+		test9(str);
 
+	}
+
+	private static void test9(String str) {
+		System.out.println(str.toLowerCase());
+		System.out.println(str.toUpperCase());
+	}
+
+	private static void test8(String str) {
+		System.out.println(str.startsWith("h"));
+	}
+
+	private static void test7(String str) {
+		System.out.println(str.endsWith("ld"));
+	}
+
+	private static void test6(String str) {
+		System.out.println(str.charAt(5));
+	}
+
+	private static void test5(String str2) {
+		System.out.println(str2.trim());
+	}
+
+	private static void test4(String str) {
+		String w = str.substring(str.indexOf("W"));
+		System.out.println(w);
+	}
+
+	private static void test3(String str) {
+		String substring = str.substring(0, 5);
+		System.out.println(substring);
+	}
+
+	private static void test2(String str) {
+		System.out.println(str.indexOf('o',5));
+	}
+
+	private static void test1(String str) {
+		System.out.println(str.length());
 	}
 	/**
 	 * 以当前方法为例，下面继续编写test2,test3...等方法。
@@ -30,7 +75,4 @@ public class Test01 {
 	 * 以此类推。
 	 * @param str
 	 */
-	public static void test1(String str){
-		
-	}
 }

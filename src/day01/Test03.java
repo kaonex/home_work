@@ -8,6 +8,14 @@ package day01;
  */
 public class Test03 {
 	public static void main(String[] args) {
+
+
+		String str="上海自来水来自海上";
+		if(check(str))
+			System.out.println("是回文");
+		else
+			System.out.println("不是回文");
+
 		/*
 		 * 编写一个回文字符串，然后调用check方法检查
 		 * 该字符串是否为回文，然后输出检查结果。
@@ -22,6 +30,10 @@ public class Test03 {
 	 * @return true表示是回文，false表示不是回文
 	 */
 	public static boolean check(String str){
-		return false;
+		for (int i = 0; i < str.length() / 2; i++) {
+			if(str.charAt(i) != str.charAt(str.length()-1-i))
+				return false;
+		}
+		return true;
 	}
 }

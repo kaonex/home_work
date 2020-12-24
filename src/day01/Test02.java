@@ -9,9 +9,15 @@ package day01;
  */
 public class Test02 {
 	public static void main(String[] args) {
-		System.out.println(84);
-		System.out.println(44);
-		System.out.println(9);
+		String str="大家好！";
+		str=str.concat("我是程序员！");
+		System.out.println(str);
+		str=str.replace("程序员","优秀的程序员");
+		System.out.println(str);
+		str=str.replace("优秀","牛牛");
+		System.out.println(str);
+		str=str.replace("大家好！","");
+		System.out.println(str);
 
 	}
 }
