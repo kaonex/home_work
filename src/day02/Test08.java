@@ -1,4 +1,8 @@
 package day02;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  * 要求用户输入若干员工信息，格式为：
  * name,age,gender,salary;name,age,gender,salary;....
@@ -10,5 +14,31 @@ package day02;
  *
  */
 public class Test08 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str=sc.next();
+        String[] emps = str.split(";");
+
+        ArrayList<String[]> list=new ArrayList<>();
+
+        for (String s : emps) {
+            list.add(s.split(","));
+        }
+
+        ArrayList<Person> presons=new ArrayList<>();
+        for (String[] split : list) {
+            Person emp=new Person(split[0],Integer.parseInt(split[1]),split[2],Integer.parseInt(split[3]));
+            presons.add(emp);
+        }
+
+        for (Person person : presons) {
+            System.out.println(person);
+        }
+
+
+
+
+
+    }
 
 }

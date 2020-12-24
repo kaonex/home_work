@@ -6,5 +6,10 @@ package day02;
  *
  */
 public class Test06 {
+    public static void main(String[] args) {
+        String regex="\\d{3,4}-\\d{7,8}";
+        String number="0415-5561111";
+        System.out.println(number.matches(regex));
+    }
 
 }

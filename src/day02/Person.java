@@ -31,7 +31,7 @@ public class Person {
     public boolean equals(Object o) {
         if(o instanceof Person){
             Person person=(Person) o;
-            return this.name == person.name;
+            return Objects.equals(this.name, person.name);
         }
         return this == o;
     }
