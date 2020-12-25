@@ -10,7 +10,9 @@ package day01;
  */
 public class Test06 {
 	public static void main(String[] args) {
-		
+
+
+
 	}
 	public static int parseInt(String str){
 		// 最后要生成的数字
