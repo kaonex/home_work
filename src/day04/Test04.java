@@ -25,17 +25,13 @@ public class Test04 {
         }
 
 
-        for (Integer integer : list) {
-            System.out.print(integer+",");
-        }
+        System.out.println(list);
         System.out.println();
         list.remove((Integer)7);
         list.remove((Integer)8);
         list.remove((Integer)9);
 
-        for (Integer integer : list) {
-            System.out.print(integer+",");
-        }
+        System.out.println(list);
 
     }
 

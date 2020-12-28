@@ -19,9 +19,7 @@ public class Test07 {
         }
         Collections.sort(list);
 
-        for (Integer integer : list) {
-            System.out.println(integer);
-        }
+        System.out.println(list);
 
     }
 

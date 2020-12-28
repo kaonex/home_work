@@ -41,9 +41,7 @@ public class Test09 {
             emps.add(emp);
         }
 
-        for (Emp emp : emps) {
-            System.out.println(emp);
-        }
+        System.out.println(emps);
 
         for (Emp emp : emps) {
             Date hiredate = emp.getHiredate();

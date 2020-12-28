@@ -1,6 +1,7 @@
 package day04;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * 创建一个List集合，并添加元素0-9
@@ -16,9 +17,7 @@ public class Test05 {
         }
         Integer[] a=new Integer[list.size()];
         list.toArray(a);
-        for (Integer integer : a) {
-            System.out.println(integer);
-        }
+        System.out.println(Arrays.toString(a));
     }
 
 }

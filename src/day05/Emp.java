@@ -96,6 +96,9 @@ public class Emp implements Comparable{
 
     @Override
     public int compareTo(Object o) {
-        return 0;
+        if(o instanceof  Emp){
+            return Integer.compare(this.getAge(), ((Emp) o).getAge());
+        }
+        return -1;
     }
 }

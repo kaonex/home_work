@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -21,14 +22,12 @@ public class Test08 {
         String str2=sc.next();
         String str3=sc.next();
 
-        ArrayList<Date> date_list=new ArrayList();
+        LinkedList<Date> date_list=new LinkedList<>();
         date_list.add(sdf.parse(str1));
         date_list.add(sdf.parse(str2));
         date_list.add(sdf.parse(str3));
 
-        for (Date date : date_list) {
-            System.out.println(date);
-        }
+        System.out.println(date_list);
 
 
 

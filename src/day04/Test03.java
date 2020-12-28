@@ -28,14 +28,10 @@ public class Test03 {
 
         list.add(2,"2");
 
-        for (String s : list) {
-            System.out.print(s+",");
-        }
+        System.out.println(list);
         System.out.println();
         list.remove(2);
-        for (String s : list) {
-            System.out.print(s+",");
-        }
+        System.out.println(list);
 
 
     }

@@ -1,5 +1,7 @@
 package day03;
 
+import com.sun.security.jgss.GSSUtil;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -13,26 +15,34 @@ import java.util.Scanner;
  * 出生日期:1992-07-15。
  * 20岁生日:2012-07-15
  * 当周的周三为:2012-07-18
- * @author Bonnie
  *
+ * @author Bonnie
  */
 public class Test05 {
 
-    public static void main(String[] args) {
-        System.out.print("请输入出生日期:");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-
-        try {
-            Date date=sdf.parse(new Scanner(System.in).next());
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(date);
-            cal.add(Calendar.YEAR,20);
-            cal.set(Calendar.DAY_OF_WEEK,4);
-            System.out.println("20岁生日当周的周三为:"+ sdf.format(cal.getTime()));
-        } catch (ParseException e) {
-            System.out.println("输入日期格式有误！");
+    public static void main(String[] args) throws ParseException {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("请输入身份证号:");
+        String regex = "^(\\d{14}|\\d{17})(\\d|[xX])$";
+        String str = sc.next();
+        if (!str.matches(regex)) {
+            System.out.println("身份证输入有误！");
+            return;
         }
+        String year = str.substring(6, 10);
+        String month = str.substring(10, 12);
+        String day = str.substring(12, 14);
+        String date_str = year + "-" + month + "-" + day;
+
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = sdf.parse(date_str);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.YEAR, 20);
+        cal.set(Calendar.DAY_OF_WEEK, 4);
+        System.out.println("20岁生日当周的周三为:" + sdf.format(cal.getTime()));
+
 
     }
 

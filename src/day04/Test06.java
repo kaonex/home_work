@@ -16,9 +16,7 @@ public class Test06 {
         String[] arr={"one","two","three"};
         List<String> list = Arrays.asList(arr);
 
-        for (String s : list) {
-            System.out.println(s);
-        }
+        System.out.println(list);
 
 
     }
