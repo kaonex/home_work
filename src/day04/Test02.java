@@ -21,14 +21,8 @@ public class Test02 {
         list.add("$");
         list.add("4");
 
-        Iterator<String> iterator = list.iterator();
-        while(iterator.hasNext()){
-            if(iterator.next().equals("$"))
-                iterator.remove();
-        }
-        for (String s : list) {
-            System.out.println(s);
-        }
+        list.removeIf(s -> s.equals("$"));
+        System.out.println(list);
 
 
     }

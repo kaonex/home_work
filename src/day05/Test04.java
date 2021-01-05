@@ -37,16 +37,23 @@ public class Test04 {
         while(iterator.hasNext())
             System.out.println(iterator.next());
 
+        System.out.println("===================");
 
         Set<String> strings = map.keySet();
         Iterator<String> iterator1 = strings.iterator();
-        while(iterator1.hasNext())
-            System.out.println(iterator1.next());
+        while(iterator1.hasNext()){
+            String next = iterator1.next();
+            System.out.println(next);
+        }
 
-        Set<String> strings1 = map.keySet();
-        Iterator<String> iterator2 = strings1.iterator();
-        while(iterator2.hasNext())
-            System.out.println(map.get(iterator2.next()));
+        System.out.println("===================");
+
+        Collection<Integer> values = map.values();
+        Iterator<Integer> it = values.iterator();
+        while(it.hasNext()){
+            Integer next = it.next();
+            System.out.println(next);
+        }
 
 
     }
