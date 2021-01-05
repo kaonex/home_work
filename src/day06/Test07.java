@@ -24,7 +24,7 @@ public class Test07 {
 	public static void copy1(String name)throws IOException{
 		InputStream fis = new FileInputStream(name);
 		String[] split = name.split("\\.");
-		OutputStream fos = new FileOutputStream(split[0] + "_copy" + split[1]);
+		OutputStream fos = new FileOutputStream(split[0] + "_copy." + split[1]);
 
 		int read;
 		while((read=fis.read())!=-1){
