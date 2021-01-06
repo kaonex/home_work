@@ -1,5 +1,6 @@
 package day07;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
@@ -21,7 +22,8 @@ import java.util.Objects;
  * @author Bonnie
  *
  */
-public class Emp {
+public class Emp implements Serializable {
+    public final static long serialVersionUID=120000000L;
     private String name;
     private int age;
     private String gender;
