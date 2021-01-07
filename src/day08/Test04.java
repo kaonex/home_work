@@ -1,4 +1,13 @@
 package day08;
+
+import java.io.*;
+import java.net.URISyntaxException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Set;
+
 /**
  * 使用异常捕获机制完成下述读取操作
  * 读取emp.txt文件，并将每个员工信息读取出来，以一个Emp实例保存，然后将
@@ -13,5 +22,50 @@ package day08;
  *
  */
 public class Test04 {
+
+
+    public static void main(String[] args) throws URISyntaxException {
+        HashMap<String, Emp> emps = new HashMap<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        File file = new File(Test04.class.getResource("emp.txt").toURI());
+        try( BufferedReader br = new BufferedReader(
+                new InputStreamReader(
+                        new FileInputStream(file)
+                )
+        )
+        ){
+            String emp_str;
+            while((emp_str=br.readLine())!=null){
+                String[] split = emp_str.split(",");
+
+                Emp emp = new Emp(split[0], Integer.parseInt(split[1]),
+                        split[2], Integer.parseInt(split[3]), sdf.parse(split[4]));
+
+                emps.put(emp.getName(),emp);
+
+            }
+
+
+        }catch (IOException | ParseException e){
+            e.printStackTrace();
+        }
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("输入员工姓名:");
+        String name=sc.next();
+        Set<String> emp_names = emps.keySet();
+
+        for (String emp_name : emp_names) {
+            if(emp_name.toLowerCase().equals(name.toLowerCase())){
+                System.out.println(emps.get(emp_name).toString());
+                return ;
+            }
+        }
+        System.out.println("查无此人");
+
+
+
+    }
 
 }

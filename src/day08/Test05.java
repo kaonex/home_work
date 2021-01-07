@@ -1,4 +1,11 @@
 package day08;
+
+import java.io.*;
+import java.net.URISyntaxException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  * 使用异常捕获机制完成下述读取操作，并在finally中有关闭RandomAccessFile操作。
  * 将emp.dat文件中所有员工解析出来，并创建为若干Emp实例存入一个
@@ -16,5 +23,42 @@ package day08;
  *
  */
 public class Test05 {
+    public static void main(String[] args) throws URISyntaxException, FileNotFoundException {
+        File file = new File(Test05.class.getResource("emp.dat").toURI());
+        RandomAccessFile raf = new RandomAccessFile(file, "r");
+        ArrayList<Emp> emps = new ArrayList<>();
+
+        try{byte[] bytes = new byte[32];
+            int i;
+
+            while((i=raf.read(bytes,0,32))!=-1){
+                String name = new String(bytes, "UTF-8");
+                int age=raf.readShort();
+                raf.read(bytes, 0, 10);
+                String gender=new String(bytes,"UTF-8");
+                int salary=raf.readInt();
+                long time = raf.readLong();
+                Date hiredate = new Date(time);
+                Emp emp = new Emp(name, age, gender, salary, hiredate);
+
+                emps.add(emp);
+            }
+            for (Emp emp1 : emps) {
+                System.out.println(emp1);
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            try {
+                raf.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+    }
+
+
 
 }
